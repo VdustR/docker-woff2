@@ -1,0 +1,59 @@
+{
+  "name": "docker-woff2",
+  "version": "0.1.0",
+  "description": "A dockerized woff2 image.",
+  "keywords": [
+    "docker",
+    "image",
+    "woff2",
+    "font",
+    "compress",
+    "decompress"
+  ],
+  "author": {
+    "name": "ViPro",
+    "email": "VdustR@gmail.com",
+    "url": "https://VdustR.github.io"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/VdustR/docker-woff2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VdustR/docker-woff2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VdustR/docker-woff2/issues"
+  },
+  "private": true,
+  "scripts": {
+    "commit": "git-cz",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "commitizen": "^3.1.1",
+    "conventional-changelog-cli": "^2.0.21",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
+    "prettier": "^1.17.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,html,htm,vue,css,less,scss,md,mdx,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
